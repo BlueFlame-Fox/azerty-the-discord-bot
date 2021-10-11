@@ -58,7 +58,8 @@ client.on('message', message => {
             .addField('$help', 'if you say $help the bot will DM you a list of commands.')
             .addField('$kick', 'If you say $kick @USERNAME \n it will kick anyone on the server. \n <Administrator only command>', true)
             .addField('$serverinfo', 'if you say $serverinfo will give you information all about the server.', true)
-
+            .addField('$getbot', 'This will give you a link to a website where you can add me to your server', true)
+            .addField('$randnum', 'This will give you a random number', true)
         message.author.send(help)
     }
 
