@@ -8,6 +8,19 @@ client.once('ready', () => {
 })
 
 client.on('message', message => {
+
+    if (message.content.startsWith(prefix + 'report')) {
+        if (message.author.bot) return;
+        message.channel.send(`${message.author}` + ' Our Admin(s) Have Receied Your Report')
+        const channel = message.guild.id
+        const ReportMessage = message.content.slice(7).trim();
+        const ReportEmbed = new Discord.MessageEmbed()
+            .setColor('#b700ff')
+            .setTitle(ReportMessage)
+        channel.send(`||${message.author}||` + "**'s Report : - **")
+        channel.send(ReportEmbed)
+    }
+
     // console.log(message.content);
     if (message.content.startsWith(`${prefix}kick`)) {
         if (message.member.roles.find("name", "Administrator")) {
@@ -48,11 +61,42 @@ client.on('message', message => {
 
         message.author.send(help)
     }
-    if (message.content.startsWith(`${prefix}report`)) {
-        console.log("printhimeme")
-        message.guild.owner.send(message.content);
-        console.log("printoliver cant code")
+
+    if (message.content.includes(`canned penguin`)) {
+        const canned = new Discord.RichEmbed()
+            .setColor('#035396')
+            .setTitle('THE ALLMIGHTY CANNED PENGUIN')
+            .setImage('https://i.imgur.com/dkk5B90.jpg')
+
+        message.channel.send(canned)
     }
+
+    if (message.content.startsWith(`${prefix}getbot`)) {
+        message.channel.send('goto https://blueflame-fox.github.io/azerty_the_discord_bot_website/ to get me')
+    }
+
+    if (message.content.startsWith(`#skeet`)) {
+        message.channel.send("#canned penguin")
+    }
+
+    if (message.content.startsWith(`${prefix}user-info`)) {
+        const userinfo = new Discord.RichEmbed()
+            .setColor('#035096')
+            .setTitle('User Info')
+            .setImage(`${message.author.avatarURL}`)
+            .addField('Username & Discriminator:', `${message.author.username}` + `#${message.author.discriminator}`, true)
+            .addField('ID:', `${message.author.id}`, true)
+            .addField('Status:', `${message.author.presence.status}`, true)
+
+        message.channel.send(userinfo);
+    }
+
+    if (message.content.startsWith(`${prefix}randnum`)) {
+        min = 1
+        max = 100
+        message.channel.send(Math.floor(Math.random() * (max - min + 1)) + min)
+    }
+
 
 
 })
