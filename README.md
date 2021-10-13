@@ -1,1 +1,1 @@
-# Elemental Industries Discord Bot
+# Azerty Discord Bot
