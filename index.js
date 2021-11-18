@@ -80,7 +80,7 @@ client.on('message', message => {
         message.channel.send("#canned penguin")
     }
 
-    if (message.content.startsWith(`${prefix}user-info`)) {
+    if (message.content.startsWith(`${prefix}userinfo`)) {
         const userinfo = new Discord.RichEmbed()
             .setColor('#035096')
             .setTitle('User Info')
@@ -98,6 +98,7 @@ client.on('message', message => {
         message.channel.send(Math.floor(Math.random() * (max - min + 1)) + min)
     }
 
+    
 
 
 })
